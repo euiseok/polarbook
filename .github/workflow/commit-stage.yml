@@ -1,0 +1,9 @@
+name: Commit Stage  # 워크플로우 이름
+on: push            # 워크플로우 시작조건 : 저장소로 푸쉬
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
