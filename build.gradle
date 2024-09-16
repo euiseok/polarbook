@@ -19,6 +19,7 @@ repositories {
 
 ext{
 	set('springCloudVersion', "2023.0.3")
+	set('testcontainersVersion', "1.17.3")
 }
 
 dependencies {
@@ -30,6 +31,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
 	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -38,7 +40,12 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
 	}
+}
+
+bootRun {
+	systemProperty 'spring.profiles.active', 'testdata'
 }
 
 tasks.named('test') {

@@ -46,7 +46,9 @@ public class BookService {
                             book.title(),
                             book.author(),
                             book.price(),
-                            existsBook.version());
+                            book.createdDate(),
+                            book.lastModifiedDate(),
+                            existsBook.version());  // 업데이트 성공시 증가
                     return bookRepository.save(bookToUpdate);
                 })
                 // 카탈로그에 존재하지 않는 책의 경우 카탈로그에 저장
