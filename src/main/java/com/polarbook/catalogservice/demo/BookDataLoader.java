@@ -27,8 +27,8 @@ public class BookDataLoader {
 
         bookRepository.deleteAll();
 
-        var book1 = Book.of("12345678", "Northern Lights","Syrial", 9.9);
-        var book2 = Book.of("22335678", "Polar Journey","Nathon", 6.8);
+        var book1 = Book.of("12345678", "Northern Lights","Syrial", 9.9, null);
+        var book2 = Book.of("22335678", "Polar Journey","Nathon", 6.8, "Random House");
 
         bookRepository.saveAll(List.of(book1, book2));
     }

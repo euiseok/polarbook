@@ -27,7 +27,7 @@ public class BookTests {
     @Test
     void whenAllFieldCorrectThenValidationSucceeds(){
         // 유효한 정보로 생성한다.
-        var book = Book.of("1234567890", "Title", "Author", 9.8);
+        var book = Book.of("1234567890", "Title", "Author", 9.8, null);
         Set<ConstraintViolation<Book>> violations = validator.validate(book);
         assertThat(violations).isEmpty();
     }
@@ -36,7 +36,7 @@ public class BookTests {
     void whenIsbnDefinedButIncorrectThenValidationFails(){
         // ISBN 값이 포맷에 유효하지 않음을 테스트
         // new Book 과 Book.of 차이
-        var book = Book.of("a12345678", "Title", "Author", 9.2);
+        var book = Book.of("a12345678", "Title", "Author", 9.2, null);
         Set<ConstraintViolation<Book>> violations = validator.validate(book);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage())

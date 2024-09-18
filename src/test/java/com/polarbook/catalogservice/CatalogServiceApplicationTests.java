@@ -25,7 +25,7 @@ class CatalogServiceApplicationTests {
     @Test
     void whenPostRequestThenBookCreated(){
 
-        var expectedBook = Book.of("1231231231", "Title", "Author", 9.9);
+        var expectedBook = Book.of("1231231231", "Title", "Author", 9.9, "Random House");
 
         // post http방식
         // uri  서비스 경로

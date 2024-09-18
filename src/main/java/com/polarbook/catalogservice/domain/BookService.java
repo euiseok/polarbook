@@ -46,6 +46,7 @@ public class BookService {
                             book.title(),
                             book.author(),
                             book.price(),
+                            book.publisher(),
                             book.createdDate(),
                             book.lastModifiedDate(),
                             existsBook.version());  // 업데이트 성공시 증가
