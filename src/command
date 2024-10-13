@@ -1,0 +1,22 @@
+
+
+M1 silicon 에서 빌드하기.
+  docker build --platform linux/arm64 -t catalog-service .
+
+ghcr.io 에 등록 (p240)
+
+./gradlew bootBuildImage \
+--imageName ghcr.io/euiseok/catalog-service \
+--publishImage \
+-PregistryUrl=ghcr.io \
+-PregistryUsername=euiseok \
+-PregistryToken=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
+
+ github > package에 등록 확인 후 delete (package option)
+
+ docker compose
+
+ 개발자가 branch commit > build > unit test > integration test > static code analysis > packaging
+
+commit-stage.yml 사용
+version은 15장 참고, 당분간은 latest
